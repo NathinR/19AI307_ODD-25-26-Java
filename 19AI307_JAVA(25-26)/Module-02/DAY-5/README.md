@@ -1,22 +1,37 @@
-# Ex.No:5(A) INPUTSTREAMREADER 
+# Ex.No:2(E) ACCESS MODIFIERS
 
 ## QUESTION:
-Write a Java program to write characters to a file using FileWriter.
+Create a class Employee with method display(). Inside display(), return the current object using this. Create another method that calls display().printName()
+
 
 ## AIM:
-To write character data into a file using the FileWriter class in Java.
+To create an Employee class where the display() method returns the current object using this, and demonstrate calling display().printName() from another method.
 
 ## ALGORITHM :
-1.	Import java.io.FileWriter and java.io.IOException.
-2.	Take user input using Scanner.
-3.	Create a FileWriter object with the desired file name.
-4.	Use write() method to write text into the file.
-5.	Close the FileWriter and handle exceptions using try-catch.
+1. Create a class Employee with a variable name.
+
+2. Write a method setName() to assign value to name.
+
+3. Write a method display() that returns the current object using return this;.
+
+4. Write a method printName() to print the employee name.
+
+5. Add another method show() that internally calls display().printName().
+
+6. In the main() method, read the employee name from the user.
+
+7.Create an Employee object and set the name.
+
+8. Call both display().printName() and show() to demonstrate method chaining.
+
+
+
+
 
 ## PROGRAM:
  ```
 /*
-Program to implement a InputStreamReader using Java
+Program to implement a Access Modifiers using Java
 Developed by: Nathin R
 RegisterNumber: 212222230090
 */
@@ -24,36 +39,44 @@ RegisterNumber: 212222230090
 
 ## SOURCE CODE:
 ```
-import java.io.*;
+import java.util.Scanner;
 
-public class FileWriteExample {
+class Employee {
+    String name;
+
+    void setName(String name) {
+        this.name = name;  
+    }
+
+    Employee display() {
+        return this;  
+    }
+
+    void printName() {
+        System.out.println("Employee Name: " + name);
+    }
+}
+
+class prog {
     public static void main(String[] args) {
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            String filename = br.readLine();
-            String content = br.readLine();
+        Scanner scanner = new Scanner(System.in);
+        String inputName = scanner.nextLine();
 
-            FileWriter fw = new FileWriter(filename);
-            fw.write(content);
-            fw.close();
-
-            System.out.println("File written successfully.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-        }
+        Employee emp = new Employee();
+        emp.setName(inputName);
+        emp.display().printName();  
     }
 }
 ```
 
 
-
-
-
-
 ## OUTPUT:
-<img width="1239" height="395" alt="image" src="https://github.com/user-attachments/assets/f1eb5219-05ab-4882-990c-ab044ebd6ca8" />
+
+<img width="686" height="326" alt="image" src="https://github.com/user-attachments/assets/954fafa4-a638-4044-b666-3322017194cd" />
+
 
 ## RESULT:
-The program successfully writes the entered text into output.txt using FileWriter.
+Therefore the program successfully returns the current object using this inside the display() method.
+
 
 
